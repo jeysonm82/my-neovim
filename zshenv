@@ -1,7 +1,4 @@
 alias start="DISPLAY=:0 terminator &"
-alias ls="colorls --sd"
-alias lc="colorls"
-source $(dirname $(gem which colorls))/tab_complete.sh
 alias cat="bat"
 alias cmd="cmd.exe /c"
 alias npm="cmd.exe /c npm"
@@ -13,3 +10,5 @@ alias killzsh="ps -aux | grep zsh"
 alias housekeeper="/usr/bin/node /home/jeyson/workspace/housekeeper/main.js"
 alias explorer="cmd.exe /c start ."
 alias nvim="/home/jeyson/nvim-0.4/usr/bin/nvim"
+alias ls="lsd"
+alias lc="lsd"
