@@ -1,37 +1,43 @@
+
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug('tpope/vim-fugitive')
-Plug('tpope/vim-vinegar')
-Plug('shumphrey/fugitive-gitlab.vim')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug ('junegunn/fzf.vim')
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-Plug('Yggdroot/indentLine')
-Plug('jiangmiao/auto-pairs')
-Plug('mhinz/vim-signify')
-Plug('kshenoy/vim-signature')
-Plug('itchyny/lightline.vim')
-Plug('rakr/vim-one')
-Plug('NLKNguyen/papercolor-theme')
-Plug('pangloss/vim-javascript')
-Plug('HerringtonDarkholme/yats.vim')
-Plug ('ryanoasis/vim-devicons')
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'NovaDev94/lightline-onedark'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+"Light version plugins
 Plug 'morhetz/gruvbox'
-Plug 'thenewvu/vim-colors-blueprint'
+Plug 'udalov/kotlin-vim'
+Plug('kshenoy/vim-signature')
+Plug('HerringtonDarkholme/yats.vim')
+Plug('itchyny/lightline.vim')
+Plug 'NovaDev94/lightline-onedark'
+Plug ('ryanoasis/vim-devicons')
+
+if !exists('light')
+  Plug('pangloss/vim-javascript')
+  Plug('tpope/vim-fugitive')
+  Plug('shumphrey/fugitive-gitlab.vim')
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug ('junegunn/fzf.vim')
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+  Plug('Yggdroot/indentLine')
+  Plug('jiangmiao/auto-pairs')
+  Plug('mhinz/vim-signify')
+  Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+  Plug 'francoiscabrol/ranger.vim'
+  Plug 'puremourning/vimspector'
+else
+  echo 'Light nvim version'
+endif
 call plug#end()
 
 " Themming
 colorscheme gruvbox
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set background=dark
 set cursorline " To highlight cursor line
 hi VertSplit  guifg=SkyBlue
+au InsertEnter * hi VertSplit  guifg=LawnGreen
+au InsertLeave * hi VertSplit  guifg=SkyBlue
 set fillchars=vert:┃ " for vsplits
 set fillchars+=fold:· " for folds
 set cc=0
@@ -125,6 +131,7 @@ set updatetime=300
 set shortmess+=c
 highlight link CocErrorSign GruvboxRed
 
+if !exists('light')
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -176,6 +183,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+endif
 
 " Key mappings
 let mapleader = ","
@@ -245,7 +253,8 @@ nmap <leader>d <Plug>(coc-definition)
 nmap <leader>re <Plug>(coc-references)
 nmap <leader>i <Plug>(coc-implementation)
 "nmap <leader>f  <Plug>(coc-format-selected)
-
+" Autowrite buffers
+set autowrite
 " CHEATSHEET
 " gg=G to format html
 " To use registers: "r followed by command or Ctrl + r followd by register in
@@ -253,3 +262,5 @@ nmap <leader>i <Plug>(coc-implementation)
 " to use mark use m[mark] or m[MARK], to navigate to local mark use  'm or `m
 " to global mark
 " fzf: Buffers, Marks and Windows are useful
+" :r! command  , to execute command and put output in buffer
+let g:vimspector_enable_mappings = 'HUMAN'
