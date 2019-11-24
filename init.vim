@@ -9,13 +9,13 @@ Plug('HerringtonDarkholme/yats.vim')
 Plug('itchyny/lightline.vim')
 Plug 'NovaDev94/lightline-onedark'
 Plug ('ryanoasis/vim-devicons')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug ('junegunn/fzf.vim')
 
 if !exists('light')
   Plug('pangloss/vim-javascript')
   Plug('tpope/vim-fugitive')
   Plug('shumphrey/fugitive-gitlab.vim')
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug ('junegunn/fzf.vim')
   Plug 'prettier/vim-prettier', { 'do': 'npm install' }
   Plug('Yggdroot/indentLine')
   Plug('jiangmiao/auto-pairs')
@@ -23,6 +23,7 @@ if !exists('light')
   Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
   Plug 'francoiscabrol/ranger.vim'
   Plug 'puremourning/vimspector'
+"  Plug 'TaDaa/vimade'
 else
   echo 'Light nvim version'
 endif
@@ -119,9 +120,6 @@ set completeopt=longest,preview,menuone
 " Fugitive
 let g:fugitive_gitlab_domains = ['https://ragitlab2.ra.rockwell.com']
 
-"Vim polyglot 
-let g:polyglot_disabled=['markdown']
-
 "Feature switches
 let g:typescript_indent_disable = 1
 
@@ -185,6 +183,12 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 endif
 
+" Vim signature
+let g:SignatureMarkTextHL = 'Search'
+
+" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+
 " Key mappings
 let mapleader = ","
 map <Space> <Leader>
@@ -236,6 +240,9 @@ map <leader>t  :IndentLinesToggle <CR>
 " Fixes bug
 nnoremap <space><space>  :echoe ""<CR>
 
+" Toggle vimade
+map <leader>vm :VimadeToggle<CR>
+
 " CocList Mapping
 " Remap for do codeAction of current line
 nmap <leader>ca <Plug>(coc-codeaction)
@@ -263,4 +270,4 @@ set autowrite
 " to global mark
 " fzf: Buffers, Marks and Windows are useful
 " :r! command  , to execute command and put output in buffer
-let g:vimspector_enable_mappings = 'HUMAN'
+" :[range]g/pattern/command
