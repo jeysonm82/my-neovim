@@ -1,39 +1,37 @@
 
-" Plugins
+" Plugins (uses vim plug)
 call plug#begin('~/.vim/plugged')
-"Light version plugins
 Plug 'KurtPreston/vimcolors'
-Plug 'morhetz/gruvbox'
-Plug 'udalov/kotlin-vim'
-Plug('kshenoy/vim-signature')
-Plug('HerringtonDarkholme/yats.vim')
-Plug('itchyny/lightline.vim')
+Plug 'morhetz/gruvbox' " colors
+Plug 'udalov/kotlin-vim' " kotlin syntax
+Plug('kshenoy/vim-signature') " Show marks
+Plug('HerringtonDarkholme/yats.vim') " Typescript syntax
+Plug('itchyny/lightline.vim') " status bar
 Plug 'NovaDev94/lightline-onedark'
 Plug ('ryanoasis/vim-devicons')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy search inside files (use fd)
 Plug ('junegunn/fzf.vim')
-Plug('jiangmiao/auto-pairs')
-Plug 'francoiscabrol/ranger.vim'
+Plug('jiangmiao/auto-pairs') " Close pairs
+Plug 'francoiscabrol/ranger.vim' " File manager
 
 if !exists('light')
-  Plug 'plasticboy/vim-markdown'
-  Plug 'sheerun/vim-polyglot'
+  Plug 'plasticboy/vim-markdown' " markdown syntax
+  Plug 'sheerun/vim-polyglot' " syntax
   Plug('pangloss/vim-javascript')
-  Plug('tpope/vim-fugitive')
-  Plug('shumphrey/fugitive-gitlab.vim')
+  Plug('tpope/vim-fugitive') " Git integrataion
+  Plug('shumphrey/fugitive-gitlab.vim') " Gitlab things
   Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-  Plug('Yggdroot/indentLine')
-  Plug('mhinz/vim-signify')
-  Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-  Plug 'puremourning/vimspector'
+  Plug('Yggdroot/indentLine') " Show indentlines
+  Plug('mhinz/vim-signify') " Show git line changes
+  Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'} " LSP (tsserver)
+  Plug 'puremourning/vimspector' " Debugger (not ready yet :()
 "  Plug 'TaDaa/vimade'
 else
   echo 'Light nvim version'
 endif
 call plug#end()
 
-" Themming
-" colorscheme fruidle
+" Themming (colors)
 colorscheme gruvbox
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -41,12 +39,14 @@ set termguicolors
 set background=dark
 set cursorline " To highlight cursor line
 hi VertSplit  guifg=SkyBlue
+" Split line colors
 au InsertEnter * hi VertSplit  guifg=LawnGreen
 au InsertLeave * hi VertSplit  guifg=SkyBlue
 set fillchars=vert:┃ " for vsplits
 set fillchars+=fold:· " for folds
 set cc=0
 set nu
+" Indent line
 let g:indentLine_char = '┊'
 let g:indentLine_concealcursor='nc'
 " set relativenumber
@@ -123,7 +123,7 @@ endfunction
 "Automcompletion window
 set completeopt=longest,preview,menuone
 
-"FZF
+"FZF 
 "command! -bang -nargs=? -complete=dir Files
 "  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -175,7 +175,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -201,7 +200,6 @@ let g:SignatureMarkTextHL = 'Search'
 let g:vimspector_enable_mappings = 'HUMAN'
 
 " Key mappings
-let mapleader = ","
 map <Space> <Leader>
 " Enable Ctrl+c Ctrl+v
 vmap <C-c> "+yi
