@@ -2,6 +2,7 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
 "Light version plugins
+Plug 'KurtPreston/vimcolors'
 Plug 'morhetz/gruvbox'
 Plug 'udalov/kotlin-vim'
 Plug('kshenoy/vim-signature')
@@ -11,17 +12,19 @@ Plug 'NovaDev94/lightline-onedark'
 Plug ('ryanoasis/vim-devicons')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug ('junegunn/fzf.vim')
+Plug('jiangmiao/auto-pairs')
+Plug 'francoiscabrol/ranger.vim'
 
 if !exists('light')
+  Plug 'plasticboy/vim-markdown'
+  Plug 'sheerun/vim-polyglot'
   Plug('pangloss/vim-javascript')
   Plug('tpope/vim-fugitive')
   Plug('shumphrey/fugitive-gitlab.vim')
   Plug 'prettier/vim-prettier', { 'do': 'npm install' }
   Plug('Yggdroot/indentLine')
-  Plug('jiangmiao/auto-pairs')
   Plug('mhinz/vim-signify')
   Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-  Plug 'francoiscabrol/ranger.vim'
   Plug 'puremourning/vimspector'
 "  Plug 'TaDaa/vimade'
 else
@@ -30,6 +33,7 @@ endif
 call plug#end()
 
 " Themming
+" colorscheme fruidle
 colorscheme gruvbox
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -44,6 +48,8 @@ set fillchars+=fold:· " for folds
 set cc=0
 set nu
 let g:indentLine_char = '┊'
+let g:indentLine_concealcursor='nc'
+" set relativenumber
 
 " Tab behavior
 set tabstop=2
@@ -98,6 +104,10 @@ let g:lightline = {
       \  'fileencoding': 'MyFileformat',
       \  'gitbranch': 'fugitive#head'
       \ },
+      \ 'tabline': {
+      \ 'left': [ [ 'tabs' ] ],
+      \ 'right': [ [ 'gitbranch', 'close' ] ]
+      \ },
       \ }
 set noshowmode
 
@@ -130,6 +140,7 @@ set shortmess+=c
 highlight link CocErrorSign GruvboxRed
 
 if !exists('light')
+autocmd CursorHold * update
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -202,8 +213,8 @@ tnoremap <Esc> <C-\><C-n>
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 "Exit Insert mode using jk instead of ESC
-imap jk <ESC>
-imap kj <ESC>
+imap jk <ESC><CR>
+imap kj <ESC><CR>
 
 "Ranger
 " Use <leader>f to start ranger
@@ -227,6 +238,7 @@ map <leader>k :resize +5<CR>
 
 " Stop that stupid window from popping up:
 map q: :q
+nmap <leader>w :w<CR>
 
 " Disable arrow keys
 nnoremap <Left>  :echoe "Use h"<CR>
