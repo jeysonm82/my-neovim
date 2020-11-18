@@ -1,42 +1,55 @@
-" Plugins
+
+" Plugins (uses vim plug)
 call plug#begin('~/.vim/plugged')
-Plug('tpope/vim-fugitive')
-Plug('tpope/vim-vinegar')
-Plug('shumphrey/fugitive-gitlab.vim')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug ('junegunn/fzf.vim')
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-Plug('Yggdroot/indentLine')
-Plug('jiangmiao/auto-pairs')
-Plug('mhinz/vim-signify')
-Plug('kshenoy/vim-signature')
-Plug('itchyny/lightline.vim')
-Plug('rakr/vim-one')
-Plug('NLKNguyen/papercolor-theme')
-Plug('pangloss/vim-javascript')
-Plug('HerringtonDarkholme/yats.vim')
-Plug ('ryanoasis/vim-devicons')
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'KurtPreston/vimcolors'
+Plug 'morhetz/gruvbox' " colors
+Plug 'udalov/kotlin-vim' " kotlin syntax
+Plug('kshenoy/vim-signature') " Show marks
+Plug('HerringtonDarkholme/yats.vim') " Typescript syntax
+Plug('itchyny/lightline.vim') " status bar
 Plug 'NovaDev94/lightline-onedark'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'morhetz/gruvbox'
-Plug 'thenewvu/vim-colors-blueprint'
+Plug ('ryanoasis/vim-devicons')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy search inside files (use fd)
+Plug ('junegunn/fzf.vim')
+Plug('jiangmiao/auto-pairs') " Close pairs
+Plug 'francoiscabrol/ranger.vim' " File manager
+
+if !exists('light')
+  Plug 'plasticboy/vim-markdown' " markdown syntax
+  Plug 'sheerun/vim-polyglot' " syntax
+  Plug('pangloss/vim-javascript')
+  Plug('tpope/vim-fugitive') " Git integrataion
+  Plug('shumphrey/fugitive-gitlab.vim') " Gitlab things
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+  Plug('Yggdroot/indentLine') " Show indentlines
+  Plug('mhinz/vim-signify') " Show git line changes
+  Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'} " LSP (tsserver)
+  Plug 'puremourning/vimspector' " Debugger (not ready yet :()
+"  Plug 'TaDaa/vimade'
+else
+  echo 'Light nvim version'
+endif
 call plug#end()
 
-" Themming
+" Themming (colors)
 colorscheme gruvbox
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set background=dark
 set cursorline " To highlight cursor line
 hi VertSplit  guifg=SkyBlue
+" Split line colors
+au InsertEnter * hi VertSplit  guifg=LawnGreen
+au InsertLeave * hi VertSplit  guifg=SkyBlue
 set fillchars=vert:┃ " for vsplits
 set fillchars+=fold:· " for folds
 set cc=0
 set nu
+" Indent line
 let g:indentLine_char = '┊'
+let g:indentLine_concealcursor='nc'
+" set relativenumber
 
 " Tab behavior
 set tabstop=2
@@ -91,6 +104,10 @@ let g:lightline = {
       \  'fileencoding': 'MyFileformat',
       \  'gitbranch': 'fugitive#head'
       \ },
+      \ 'tabline': {
+      \ 'left': [ [ 'tabs' ] ],
+      \ 'right': [ [ 'gitbranch', 'close' ] ]
+      \ },
       \ }
 set noshowmode
 
@@ -106,15 +123,12 @@ endfunction
 "Automcompletion window
 set completeopt=longest,preview,menuone
 
-"FZF
+"FZF 
 "command! -bang -nargs=? -complete=dir Files
 "  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Fugitive
 let g:fugitive_gitlab_domains = ['https://ragitlab2.ra.rockwell.com']
-
-"Vim polyglot 
-let g:polyglot_disabled=['markdown']
 
 "Feature switches
 let g:typescript_indent_disable = 1
@@ -125,6 +139,8 @@ set updatetime=300
 set shortmess+=c
 highlight link CocErrorSign GruvboxRed
 
+if !exists('light')
+autocmd CursorHold * update
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -159,7 +175,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -176,9 +191,15 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+endif
+
+" Vim signature
+let g:SignatureMarkTextHL = 'Search'
+
+" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 
 " Key mappings
-let mapleader = ","
 map <Space> <Leader>
 " Enable Ctrl+c Ctrl+v
 vmap <C-c> "+yi
@@ -190,8 +211,8 @@ tnoremap <Esc> <C-\><C-n>
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 "Exit Insert mode using jk instead of ESC
-imap jk <ESC>
-imap kj <ESC>
+imap jk <ESC><CR>
+imap kj <ESC><CR>
 
 "Ranger
 " Use <leader>f to start ranger
@@ -215,6 +236,7 @@ map <leader>k :resize +5<CR>
 
 " Stop that stupid window from popping up:
 map q: :q
+nmap <leader>w :w<CR>
 
 " Disable arrow keys
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -227,6 +249,9 @@ nnoremap <leader>n :set relativenumber!<CR>
 map <leader>t  :IndentLinesToggle <CR>
 " Fixes bug
 nnoremap <space><space>  :echoe ""<CR>
+
+" Toggle vimade
+map <leader>vm :VimadeToggle<CR>
 
 " CocList Mapping
 " Remap for do codeAction of current line
@@ -245,7 +270,8 @@ nmap <leader>d <Plug>(coc-definition)
 nmap <leader>re <Plug>(coc-references)
 nmap <leader>i <Plug>(coc-implementation)
 "nmap <leader>f  <Plug>(coc-format-selected)
-
+" Autowrite buffers
+set autowrite
 " CHEATSHEET
 " gg=G to format html
 " To use registers: "r followed by command or Ctrl + r followd by register in
@@ -253,3 +279,5 @@ nmap <leader>i <Plug>(coc-implementation)
 " to use mark use m[mark] or m[MARK], to navigate to local mark use  'm or `m
 " to global mark
 " fzf: Buffers, Marks and Windows are useful
+" :r! command  , to execute command and put output in buffer
+" :[range]g/pattern/command
