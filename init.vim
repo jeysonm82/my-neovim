@@ -1,5 +1,5 @@
 " Dependencies
-" python3 ranger highlight fd
+" python3 node ranger highlight fd
 " neovim for python3
 
 let $CONFIG_DIR = $HOME. '/.config/nvim'
