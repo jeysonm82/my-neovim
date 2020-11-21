@@ -6,13 +6,13 @@ nmap <leader>lc <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>lf  <Plug>(coc-fix-current)
 " Show all diagnostics
-nnoremap <silent> <leader>ldi  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>lq  :<C-u>CocList diagnostics<cr>
 "nmap <leader> ldip <Plug>(coc-diagnostic-prev)
 "nmap <leader> ldin <Plug>(coc-diagnostic-next)
 " Search workspace symbols
 nnoremap <silent> <leader>ls  :<C-u>CocList -I symbols<cr>
 nmap <leader>lr <Plug>(coc-rename)
-nmap <leader>lre <Plug>(coc-references)
+nmap <leader>le <Plug>(coc-references)
 nmap <leader>ld <Plug>(coc-definition)
 nmap <leader>li <Plug>(coc-implementation)
 "nmap <leader>f  <Plug>(coc-format-selected)
