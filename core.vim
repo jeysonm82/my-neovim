@@ -42,7 +42,7 @@ set foldmethod=syntax
 set backupcopy=yes
 
 "OS clipboard integration
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " Autoload externally changed file
 set autoread
