@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'liuchengxu/vista.vim'
   Plug 'honza/vim-snippets'
-  Plug 'sbdchd/neoformat'
   Plug 'liuchengxu/vim-which-key'
   Plug 'mhinz/vim-startify'
   Plug 'metakirby5/codi.vim'

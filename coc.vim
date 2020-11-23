@@ -4,7 +4,7 @@ let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-snippets', 'coc-e
 " Remap for do codeAction of current line
 nmap <leader>lc <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>lf  <Plug>(coc-fix-current)
+nmap <leader>lz  <Plug>(coc-fix-current)
 " Show all diagnostics
 nnoremap <silent> <leader>lq  :<C-u>CocList diagnostics<cr>
 "nmap <leader> ldip <Plug>(coc-diagnostic-prev)
@@ -15,6 +15,8 @@ nmap <leader>lr <Plug>(coc-rename)
 nmap <leader>le <Plug>(coc-references)
 nmap <leader>ld <Plug>(coc-definition)
 nmap <leader>li <Plug>(coc-implementation)
+command! -nargs=0 Format :call CocAction('format')
+nmap <leader>lf :Format<cr>
 "nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <leader> lk :call <SID>show_documentation()<CR>
 
