@@ -38,6 +38,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'liuchengxu/vim-which-key'
   Plug 'mhinz/vim-startify'
   Plug 'metakirby5/codi.vim'
+  " Debugger
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'mfussenegger/nvim-dap-python'
 call plug#end()
 
 source $CONFIG_DIR/colors.vim
@@ -53,3 +56,4 @@ source $CONFIG_DIR/neoformat.vim
 source $CONFIG_DIR/whichkey.vim
 source $CONFIG_DIR/startify.vim
 source $CONFIG_DIR/codi.vim
+source $CONFIG_DIR/dap.vim
