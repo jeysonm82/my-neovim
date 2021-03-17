@@ -22,7 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-fugitive'
   Plug 'mhinz/vim-signify'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSInstall python typescript html json javascript css' }
+ "Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSInstall python typescript html json javascript css' }
 
   " Colorschemes
   Plug 'sainnhe/sonokai'
@@ -41,6 +41,7 @@ call plug#begin('~/.vim/plugged')
   " Debugger
   Plug 'mfussenegger/nvim-dap'
   Plug 'mfussenegger/nvim-dap-python'
+  Plug 'sirtaj/vim-openscad'
 call plug#end()
 
 source $CONFIG_DIR/colors.vim
@@ -50,7 +51,7 @@ source $CONFIG_DIR/fzf.vim
 source $CONFIG_DIR/ranger.vim
 source $CONFIG_DIR/signify.vim
 source $CONFIG_DIR/coc.vim
-source $CONFIG_DIR/treesitter.vim
+"source $CONFIG_DIR/treesitter.vim
 source $CONFIG_DIR/colorizer.vim
 source $CONFIG_DIR/neoformat.vim
 source $CONFIG_DIR/whichkey.vim
