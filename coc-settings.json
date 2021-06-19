@@ -1,7 +1,8 @@
 {
+  "explorer.icon.enableNerdfont": true,
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "ᐅ",
-  "diagnostic.errorSign": "᙭",
+  "diagnostic.errorSign": "ᳵ",
   "diagnostic.virtualText": true
 }

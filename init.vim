@@ -1,6 +1,7 @@
 " Dependencies
-" python3 node ranger highlight fd
-" neovim for python3
+" dnf install python3 node ranger highlight fd-find the-silver-searcher
+" pip install neovim
+" npm install neovim
 
 let $CONFIG_DIR = $HOME. '/.config/nvim'
 " Core configurations
