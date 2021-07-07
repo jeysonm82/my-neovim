@@ -1,5 +1,5 @@
 " Dependencies
-" dnf install python3 node ranger highlight fd-find the-silver-searcher
+" dnf install python3 node ranger highlight fd-find the-silver-searcher python-autopep8
 " pip install neovim
 " npm install neovim
 

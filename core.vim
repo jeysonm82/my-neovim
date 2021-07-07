@@ -53,3 +53,5 @@ set completeopt=longest,preview,menuone
 
 "Folding
 au BufNewFile,BufRead *.py set foldmethod=indent
+
+set wrap

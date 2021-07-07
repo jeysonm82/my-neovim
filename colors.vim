@@ -4,3 +4,4 @@ colorscheme gruvbox-material
 
 "colorscheme OceanicNext
 "colorscheme sonokai
+hi Normal guibg=NONE ctermbg=NONE
