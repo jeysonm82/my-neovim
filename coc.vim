@@ -19,7 +19,7 @@ command! -nargs=0 Format :call CocAction('format')
 nmap <leader>lf :Format<cr>
 "nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <leader> lk :call <SID>show_documentation()<CR>
-nmap <leader>e :CocCommand explorer<CR>
+"nmap <leader>e :CocCommand explorer<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
