@@ -5,5 +5,5 @@
 "colorscheme OceanicNext
 "colorscheme sonokai
 hi Normal guibg=NONE ctermbg=NONE
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme gruvbox-material

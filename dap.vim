@@ -1,6 +1,7 @@
 "
 " Python debugger, requires debugpy
 lua require('dap-python').setup('python')
+lua require("dapui").setup()
 
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>

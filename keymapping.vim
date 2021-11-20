@@ -30,6 +30,7 @@ nnoremap <Down>  :echoe "Use j"<CR>
 
 "Toggle Relative Number
 nnoremap <leader>n :set relativenumber!<CR>
+nnoremap <leader>t :tabnew <CR>
 
 "--------------------------------
 "FIXES

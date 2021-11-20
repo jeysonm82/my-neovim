@@ -12,19 +12,22 @@ source $CONFIG_DIR/keymapping.vim
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-  Plug 'kshenoy/vim-signature'
+
+  " Status bar
   Plug 'itchyny/lightline.vim'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'francoiscabrol/ranger.vim'
-  Plug 'rbgrouleff/bclose.vim'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'tzachar/compe-tabnine', { 'do': './install.sh',  'branch': 'main' }
-  Plug 'sheerun/vim-polyglot'
+  Plug 'kshenoy/vim-signature' " TODO replace with https://github.com/chentau/marks.nvim
+
+  " Git
   Plug 'tpope/vim-fugitive'
   Plug 'mhinz/vim-signify'
-  Plug 'kyazdani42/nvim-web-devicons'
+
+  " File explorer
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'francoiscabrol/ranger.vim'
+
+  " Icons, UI
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'kyazdani42/nvim-web-devicons'
 
   " Colorschemes
   Plug 'sainnhe/sonokai'
@@ -33,25 +36,56 @@ call plug#begin('~/.vim/plugged')
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'ayu-theme/ayu-vim'
-
+  Plug 'shaeinst/roshnivim-cs', {'branch': 'main'}
   Plug 'norcalli/nvim-colorizer.lua'
 
+  " LSP
   Plug 'neovim/nvim-lspconfig'
-  Plug 'glepnir/lspsaga.nvim', {'branch': 'main'}
-  Plug 'liuchengxu/vista.vim'
+  Plug 'folke/lsp-colors.nvim', {'branch': 'main'}
+  Plug 'tami5/lspsaga.nvim', {'branch': 'main'}
+  Plug 'simrat39/symbols-outline.nvim'
+
+  " Completion
+  Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+  Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+  Plug 'hrsh7th/vim-vsnip', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-calc', {'branch': 'main'}
+  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh',  'branch': 'main' }
+  Plug 'onsails/lspkind-nvim'
+  Plug 'windwp/nvim-autopairs'
+  Plug 'tpope/vim-commentary'
+
+  " Snippets
   Plug 'honza/vim-snippets'
-  Plug 'liuchengxu/vim-which-key'
-  Plug 'mhinz/vim-startify'
-  Plug 'metakirby5/codi.vim'
+  Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+
+  " Python
   Plug 'sbdchd/neoformat'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
-  " Debugger
+
+  " Python Debugger
   Plug 'mfussenegger/nvim-dap'
   Plug 'mfussenegger/nvim-dap-python'
+  Plug 'rcarriga/nvim-dap-ui'
+
+
+  " Telescope
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+
+  " Others
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
   Plug 'psliwka/vim-smoothie'
+  Plug 'liuchengxu/vim-which-key'
+  Plug 'mhinz/vim-startify'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'rbgrouleff/bclose.vim'
+  Plug 'rcarriga/nvim-notify'
+
   source $CONFIG_DIR/local.vim
 call plug#end()
 
@@ -64,9 +98,9 @@ source $CONFIG_DIR/colorizer.vim
 source $CONFIG_DIR/neoformat.vim
 source $CONFIG_DIR/whichkey.vim
 source $CONFIG_DIR/startify.vim
-source $CONFIG_DIR/codi.vim
 source $CONFIG_DIR/dap.vim
 source $CONFIG_DIR/lsp.vim
 source $CONFIG_DIR/telescope.vim
 source $CONFIG_DIR/nvim_tree.vim
 source $CONFIG_DIR/treesitter.vim
+source $CONFIG_DIR/sniprun.vim
