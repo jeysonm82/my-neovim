@@ -6,4 +6,4 @@
 "colorscheme sonokai
 hi Normal guibg=NONE ctermbg=NONE
 set background=light
-colorscheme papercolor
+colorscheme PaperColor
