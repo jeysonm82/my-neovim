@@ -17,10 +17,11 @@ map <C-k> <C-W>k
 map <C-l> <C-W>l
 map <C-q> :q<CR>
 
-map <C-Up> :res +5<cr>
-map <C-Down> :res -5<cr>
-map <C-Right> :vertical resize +5<cr>
-map <C-Left> :vertical resize -5<cr>
+map <A-Up> :res +5<cr>
+map <A-Down> :res -5<cr>
+map <A-Right> :vertical resize +5<cr>
+map <A-Left> :vertical resize -5<cr>
+map <Tab> :wa <cr>
 "Disable arrow keys
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>

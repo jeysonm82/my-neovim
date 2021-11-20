@@ -23,11 +23,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-fugitive'
   Plug 'mhinz/vim-signify'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'kyazdani42/nvim-tree.lua'
 
   " Colorschemes
   Plug 'sainnhe/sonokai'
   Plug 'sainnhe/gruvbox-material'
   Plug 'mhartington/oceanic-next'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'ayu-theme/ayu-vim'
+
   Plug 'norcalli/nvim-colorizer.lua'
 
   Plug 'neovim/nvim-lspconfig'
@@ -41,9 +47,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
   " Debugger
   Plug 'mfussenegger/nvim-dap'
   Plug 'mfussenegger/nvim-dap-python'
+  Plug 'psliwka/vim-smoothie'
   source $CONFIG_DIR/local.vim
 call plug#end()
 
@@ -52,7 +60,6 @@ source $CONFIG_DIR/lightline.vim
 source $CONFIG_DIR/signature.vim
 source $CONFIG_DIR/ranger.vim
 source $CONFIG_DIR/signify.vim
-source $CONFIG_DIR/coc.vim
 source $CONFIG_DIR/colorizer.vim
 source $CONFIG_DIR/neoformat.vim
 source $CONFIG_DIR/whichkey.vim
@@ -61,3 +68,5 @@ source $CONFIG_DIR/codi.vim
 source $CONFIG_DIR/dap.vim
 source $CONFIG_DIR/lsp.vim
 source $CONFIG_DIR/telescope.vim
+source $CONFIG_DIR/nvim_tree.vim
+source $CONFIG_DIR/treesitter.vim
