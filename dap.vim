@@ -1,6 +1,7 @@
 "
 " Python debugger, requires debugpy
 lua require('dap-python').setup('python')
+lua require('dap-python').test_runner = 'pytest'
 lua require("dapui").setup()
 
 lua << EOF
