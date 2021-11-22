@@ -52,7 +52,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
   Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
   Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
-  Plug 'hrsh7th/vim-vsnip', {'branch': 'main'}
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
   Plug 'hrsh7th/cmp-calc', {'branch': 'main'}
   Plug 'tzachar/cmp-tabnine', { 'do': './install.sh',  'branch': 'main' }
   Plug 'onsails/lspkind-nvim'
@@ -61,7 +62,7 @@ call plug#begin('~/.vim/plugged')
 
   " Snippets
   Plug 'honza/vim-snippets'
-  Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+  Plug 'michaelb/sniprun', {'do': 'bash install.sh 1'} " needs rust rustup pkgs
 
   " Python
   Plug 'sbdchd/neoformat'
