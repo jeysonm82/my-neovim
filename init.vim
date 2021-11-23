@@ -72,11 +72,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'mfussenegger/nvim-dap-python'
   Plug 'rcarriga/nvim-dap-ui'
 
-
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+
+  " Database
+  Plug 'tpope/vim-dadbod'
+  Plug 'kristijanhusak/vim-dadbod-completion'
+  Plug 'kristijanhusak/vim-dadbod-ui'
 
   " Others
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
@@ -105,3 +109,4 @@ source $CONFIG_DIR/telescope.vim
 source $CONFIG_DIR/nvim_tree.vim
 source $CONFIG_DIR/treesitter.vim
 source $CONFIG_DIR/sniprun.vim
+source $CONFIG_DIR/dadbod.vim
