@@ -1,12 +1,16 @@
 "
 " Python debugger, requires debugpy
-lua require('dap-python').setup('python')
-lua require('dap-python').test_runner = 'pytest'
-lua require("dapui").setup()
-
 lua << EOF
 
-require('dap')
+local dap = require('dap')
+local dap_python = require('dap-python')
+dap_python.setup('python')
+dap_python.test_runner = 'pytest'
+
+print('Debugger python configured to work with test framework: ' .. dap_python.test_runner)
+
+require("dapui").setup()
+
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 
 require("dapui").setup({
@@ -51,12 +55,13 @@ require("dapui").setup({
 })
 EOF
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+nnoremap <silent> <F6> :lua require'dap'.step_over()<CR>
+nnoremap <silent> <F7> :lua require'dap'.step_into()<CR>
+nnoremap <silent> <F8> :lua require'dap'.step_out()<CR>
 
 nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>dp :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-nnoremap <silent> <leader>dd :lua require("dapui").toggle() <CR>  :lua require'dap'.continue() <CR>
-nnoremap <silent> <leader>dc :lua require("dapui").close() <CR>
+
+nnoremap <silent> <leader>dd :lua require("dapui").close() <CR>
+nnoremap <silent> <leader>dt :lua require("dapui").open() <CR>:lua require('dap-python').test_method()<CR>
