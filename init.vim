@@ -1,5 +1,5 @@
 " Dependencies
-" dnf install python3 node ranger highlight fd-find the-silver-searcher python-autopep8 ripgrep xclip
+" dnf install python3 node fd-find the-silver-searcher python-autopep8 ripgrep xclip
 " pip install neovim
 " npm install neovim
 
@@ -19,11 +19,10 @@ call plug#begin('~/.vim/plugged')
 
   " Git
   Plug 'tpope/vim-fugitive'
-  Plug 'mhinz/vim-signify'
+  Plug 'lewis6991/gitsigns.nvim', {'branch': 'main'}
 
   " File explorer
   Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'francoiscabrol/ranger.vim'
 
   " Icons, UI
   Plug 'ryanoasis/vim-devicons'
@@ -94,19 +93,19 @@ call plug#begin('~/.vim/plugged')
   source $CONFIG_DIR/local.vim
 call plug#end()
 
-source $CONFIG_DIR/colors.vim
-source $CONFIG_DIR/lightline.vim
-source $CONFIG_DIR/signature.vim
-source $CONFIG_DIR/ranger.vim
-source $CONFIG_DIR/signify.vim
 source $CONFIG_DIR/colorizer.vim
-source $CONFIG_DIR/neoformat.vim
-source $CONFIG_DIR/whichkey.vim
-source $CONFIG_DIR/startify.vim
-source $CONFIG_DIR/dap.vim
-source $CONFIG_DIR/lsp.vim
-source $CONFIG_DIR/telescope.vim
-source $CONFIG_DIR/nvim_tree.vim
-source $CONFIG_DIR/treesitter.vim
-source $CONFIG_DIR/sniprun.vim
+source $CONFIG_DIR/colors.vim
 source $CONFIG_DIR/dadbod.vim
+source $CONFIG_DIR/dap.vim
+source $CONFIG_DIR/lightline.vim
+source $CONFIG_DIR/cmp.vim
+source $CONFIG_DIR/lsp.vim
+source $CONFIG_DIR/neoformat.vim
+source $CONFIG_DIR/nvim_tree.vim
+source $CONFIG_DIR/signature.vim
+source $CONFIG_DIR/gitsigns.vim
+source $CONFIG_DIR/sniprun.vim
+source $CONFIG_DIR/startify.vim
+source $CONFIG_DIR/telescope.vim
+source $CONFIG_DIR/treesitter.vim
+source $CONFIG_DIR/whichkey.vim
