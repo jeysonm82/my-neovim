@@ -89,6 +89,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'rbgrouleff/bclose.vim'
   Plug 'rcarriga/nvim-notify'
+  Plug 'phaazon/hop.nvim'
 
   source $CONFIG_DIR/local.vim
 call plug#end()
@@ -109,3 +110,4 @@ source $CONFIG_DIR/startify.vim
 source $CONFIG_DIR/telescope.vim
 source $CONFIG_DIR/treesitter.vim
 source $CONFIG_DIR/whichkey.vim
+source $CONFIG_DIR/hop.vim
