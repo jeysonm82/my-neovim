@@ -60,7 +60,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
 
   " Snippets
-  Plug 'honza/vim-snippets'
+  Plug 'rafamadriz/friendly-snippets', {'branch': 'main'}
   Plug 'michaelb/sniprun', {'do': 'bash install.sh 1'} " needs rust rustup pkgs
 
   " Python
