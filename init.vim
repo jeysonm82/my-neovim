@@ -37,12 +37,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'ayu-theme/ayu-vim'
   Plug 'shaeinst/roshnivim-cs', {'branch': 'main'}
   Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
   " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'folke/lsp-colors.nvim', {'branch': 'main'}
   Plug 'tami5/lspsaga.nvim', {'branch': 'main'}
   Plug 'simrat39/symbols-outline.nvim'
+  Plug 'jose-elias-alvarez/null-ls.nvim', {'branch': 'main'}
 
   " Completion
   Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}

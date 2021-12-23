@@ -70,6 +70,20 @@ vim.g.symbols_outline = {
         TypeParameter = {icon = "𝙏", hl = "TSParameter"}
     }
 }
+-- Setup null ls
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.diagnostics.flake8.with({ timeout = 45000 }),
+        --require("null-ls").builtins.diagnostics.pylint.with({ timeout = 45000 }),
+        --require("null-ls").builtins.diagnostics.codespell,
+        require("null-ls").builtins.diagnostics.misspell.with({ timeout = 45000 }),
+        --require("null-ls").builtins.diagnostics.write_good.with({ timeout = 45000 }),
+        --require("null-ls").builtins.formatting.autopep8,
+        --require("null-ls").builtins.diagnostics.shellcheck.with({ timeout = 45000 }),
+        require("null-ls").builtins.diagnostics.yamllint.with({ timeout = 45000 }),
+    },
+})
+
 EOF
 
 "Mappings
