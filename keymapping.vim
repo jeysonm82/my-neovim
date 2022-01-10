@@ -48,7 +48,9 @@ nnoremap <space><space>  :echoe ""<CR>
 "Stop that stupid window from popping up:
 map q: :q
 
-" Fix ESC behavior in terminal buffers
-tnoremap <Esc> <C-\><C-n>
+" Escape behavior in terminal buffers
+tnoremap jk <C-\><C-n>
+tnoremap kj <C-\><C-n>
+
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa

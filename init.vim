@@ -113,3 +113,4 @@ source $CONFIG_DIR/telescope.vim
 source $CONFIG_DIR/treesitter.vim
 source $CONFIG_DIR/whichkey.vim
 source $CONFIG_DIR/hop.vim
+source $CONFIG_DIR/post_plugins_config.vim
