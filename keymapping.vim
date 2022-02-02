@@ -54,3 +54,6 @@ tnoremap kj <C-\><C-n>
 
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
+
+"Open terminal
+nnoremap <leader>1 :term <CR>

@@ -15,7 +15,8 @@ call plug#begin('~/.vim/plugged')
 
   " Status bar
   Plug 'itchyny/lightline.vim'
-  Plug 'kshenoy/vim-signature' " TODO replace with https://github.com/chentau/marks.nvim
+  " Plug 'kshenoy/vim-signature' " TODO replace with https://github.com/chentau/marks.nvim
+  Plug 'chentau/marks.nvim'
 
   " Git
   Plug 'tpope/vim-fugitive'
@@ -105,7 +106,7 @@ source $CONFIG_DIR/cmp.vim
 source $CONFIG_DIR/lsp.vim
 source $CONFIG_DIR/neoformat.vim
 source $CONFIG_DIR/nvim_tree.vim
-source $CONFIG_DIR/signature.vim
+source $CONFIG_DIR/marks.vim
 source $CONFIG_DIR/gitsigns.vim
 source $CONFIG_DIR/sniprun.vim
 source $CONFIG_DIR/startify.vim

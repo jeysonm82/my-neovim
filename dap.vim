@@ -7,7 +7,6 @@ local dap_python = require('dap-python')
 dap_python.setup('python')
 dap_python.test_runner = 'pytest'
 
-print('Debugger python configured to work with test framework: ' .. dap_python.test_runner)
 
 require("dapui").setup()
 

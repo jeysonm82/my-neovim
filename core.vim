@@ -47,8 +47,12 @@ set backupcopy=yes
 set clipboard+=unnamedplus
 
 " Autoload externally changed file
+" trigger `autoread` when files changes on disk
 set autoread
-au FocusGained * :checktime
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 "Automcompletion window
 set completeopt=longest,preview,menuone
