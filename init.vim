@@ -93,6 +93,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rbgrouleff/bclose.vim'
   Plug 'rcarriga/nvim-notify'
   Plug 'phaazon/hop.nvim'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
   source $CONFIG_DIR/local.vim
 call plug#end()
@@ -115,3 +116,4 @@ source $CONFIG_DIR/treesitter.vim
 source $CONFIG_DIR/whichkey.vim
 source $CONFIG_DIR/hop.vim
 source $CONFIG_DIR/post_plugins_config.vim
+source $CONFIG_DIR/markdown_preview.vim
