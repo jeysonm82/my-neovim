@@ -17,7 +17,7 @@ let g:lightline = {
       \  'fileformat': 'MyFileformat',
       \  'fileencoding': 'MyFileformat',
       \  'time': 'MyTime',
-      \  'gitbranch': 'fugitive#head'
+      \  'gitbranch': 'FugitiveHead'
       \ },
       \ 'tabline': {
       \ 'left': [ [ 'tabs' ] ],
